@@ -1,0 +1,16 @@
+.cartBlock{
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+
+.cartBlock_Price{
+    font-size: 18px;
+    margin-left: 15px;
+    font-weight: 700;
+}
+.cartBlock_Icon{
+    cursor: pointer;
+    position: relative;
+}
