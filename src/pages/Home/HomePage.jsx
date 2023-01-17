@@ -4,7 +4,6 @@ import {GAMES} from "../../DAL/games";
 import GameItem from "../../components/GameItem/GameItem";
 
 
-
 const HomePage = () => {
 
     return (

@@ -24,12 +24,7 @@
     font-weight: 700;
 }
 
-.gameItem__genres {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
+
 
 .gameItem__description {
     margin-top: 10px;

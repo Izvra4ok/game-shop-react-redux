@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <header className={cls.header}>
             <div className={cls.wrapper}>
-                <Link to={"#"} className={cls.header__store} >
+                <Link to={"/"} className={cls.header__store} >
                     Game Store
                 </Link>
 
