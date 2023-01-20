@@ -1,0 +1,26 @@
+.orderItem{
+    display: flex;
+    margin-bottom: 30px;
+
+}
+.orderItem__Cover{
+    width: 300px;
+    margin-right: 30px;
+}
+
+.orderItem__Title{
+    font-size: 26px;
+    font-weight: 700;
+}
+.orderItem__Price{
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: auto;
+}
+.orderItem__Remove{
+    cursor: grabbing;
+    margin-left: 20px;
+}
+.orderItem__Remove:hover{
+    color:red;
+}

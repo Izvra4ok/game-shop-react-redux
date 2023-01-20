@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useCallback} from 'react';
 import {useDispatch} from "react-redux";
 import {setCurrentGame, setIsLoading} from "../../Redux/game/gameReducer";
 import {useNavigate} from "react-router-dom";
@@ -7,16 +7,17 @@ import GameBuy from "../GameBuy/GameBuy";
 import GameGenreList from "../GameGenreList/GameGenreList";
 import cls from "./GameItem.module.css";
 
-const GameItem = ({game}) => {
+
+const GameItem = React.memo(({game}) => {
 
     const history = useNavigate();
     const dispatch = useDispatch();
 
-    const handleOpenItemGame = () => {
+    const handleOpenItemGame = useCallback(() => {
         dispatch(setIsLoading(true));
         dispatch(setCurrentGame(game));
         history("/app/" + game.title);
-    };
+    }, [history]);
 
     return (
         <div className={cls.gameItem} onClick={handleOpenItemGame}>
@@ -36,7 +37,7 @@ const GameItem = ({game}) => {
             </div>
         </div>
     );
-};
+});
 
 export default GameItem;
 

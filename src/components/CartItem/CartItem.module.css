@@ -1,6 +1,7 @@
 .cartItem{
     padding: 10px 20px 10px 20px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .cartItem_title{
@@ -10,7 +11,8 @@
 }
 .cartItem_remove{
     cursor: grabbing;
-    margin-left: 10px;
-    padding: 10px;
-    font-size: 15px;
+    margin-left: 20px;
+}
+.cartItem_remove:hover{
+    color:red;
 }

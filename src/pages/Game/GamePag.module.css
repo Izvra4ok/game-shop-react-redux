@@ -1,0 +1,18 @@
+
+.gamePage__title{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+.gamePage__content {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.gamePage_buy {
+    margin-top: 20px;
+}
+
+.secondaryText {
+    color: rgb(80, 82, 84);
+}

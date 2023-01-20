@@ -1,28 +1,25 @@
-import React, {useEffect} from 'react';
-import cls from "./GameBuy.module.css";
+import React, {useCallback} from 'react';
 import Button from "../Button/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {deleteItemFromCart, setItemInCart} from "../../Redux/cart/CartReducer";
+import cls from "./GameBuy.module.css";
 
 
-
-const GameBuy = ({game}) => {
+const GameBuy = React.memo(({game}) => {
 
     const dispatch = useDispatch();
     const items = useSelector(state => state.cart.itemsInCart);
     const isItemInCart = items.some(item => item.id === game.id);
 
-
-
-    const handleClickBuyGame = (e) => {
-        e.stopPropagation(); //event works only this component, stopPropagation- event doesn't send  to tree project
+    const handleClickBuyGame = useCallback((e) => {
+        e.stopPropagation(); //event works only this component because stopPropagation- event doesn't send  to tree project
         dispatch(setItemInCart(game));
-    };
+    }, [game]);
 
-    const handleClickDeleteGame = (e) => {
-        e.stopPropagation();//event works only this component, stopPropagation- event doesn't send  to tree project
+    const handleClickDeleteGame = useCallback((e) => {
+        e.stopPropagation();//event works only this component because stopPropagation- event doesn't send  to tree project
         dispatch(deleteItemFromCart(game.id))
-    }
+    }, [game.id]);
 
     return (
         <div className={cls.gameBuy}>
@@ -34,6 +31,6 @@ const GameBuy = ({game}) => {
                           onClick={handleClickBuyGame}>Buy game</Button>}
         </div>
     );
-};
+});
 
 export default GameBuy;

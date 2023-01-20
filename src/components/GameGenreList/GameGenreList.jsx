@@ -2,7 +2,8 @@ import React from 'react';
 import GameGenre from "../GameGenre/GameGenre";
 import cls from "./GameGenreList.module.css";
 
-const GameGenreList = ({genres}) => {
+
+const GameGenreList = React.memo(({genres}) => {
 
     return (
         <div className={cls.genres}>
@@ -11,6 +12,6 @@ const GameGenreList = ({genres}) => {
             }
         </div>
     );
-};
+});
 
 export default GameGenreList;

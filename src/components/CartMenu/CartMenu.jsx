@@ -1,11 +1,11 @@
 import React from 'react';
 import {calcTotalPrice} from "../../utils/utils";
 import Button from "../Button/Button";
-import cls from "./CartMenu.module.css";
 import CartItem from "../CartItem/CartItem";
+import cls from "./CartMenu.module.css";
 
 
-const CartMenu = ({items, onClick}) => {
+const CartMenu = React.memo(({items, onClick}) => {
 
     return (
         <div className={cls.cartMenu}>
@@ -31,6 +31,6 @@ const CartMenu = ({items, onClick}) => {
                 : null}
         </div>
     );
-};
+});
 
 export default CartMenu;

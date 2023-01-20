@@ -2,7 +2,7 @@ import React from 'react';
 import "./Button.css";
 import classNames from "classnames";
 
-const Button = ({onClick, type, children, size = 's'}) => {
+const Button = React.memo(({onClick, type, children, size = 's'}) => {
 
     const btnClass = classNames({
         "btn": true,
@@ -18,6 +18,6 @@ const Button = ({onClick, type, children, size = 's'}) => {
             {children}
         </button>
     );
-};
+});
 
 export default Button;

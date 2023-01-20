@@ -19,9 +19,6 @@ const gameSlice = createSlice({
         setIsLoading: (state, action) => {
             state.isLoading = true;
         },
-        deleteCurrentGame: (state, action) => {
-            state.currentGame = state.currentGame.filter(game => game.id !== action.payload)
-        },
     },
 });
 

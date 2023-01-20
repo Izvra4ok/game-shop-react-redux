@@ -1,17 +1,17 @@
 import React from 'react';
-import cls from "./Navbar.module.css";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import CartBlock from "../CartBlock/CartBlock";
+import cls from "./Navbar.module.css";
 
 
-const Navbar = () => {
+const Navbar = React.memo(() => {
 
     return (
         <header className={cls.header}>
             <div className={cls.wrapper}>
-                <Link to={"/"} className={cls.header__store} >
+                <NavLink to={"/"} className={cls.header__store} >
                     Game Store
-                </Link>
+                </NavLink>
 
                 <div className={cls.header__cart}>
                    <CartBlock/>
@@ -20,6 +20,6 @@ const Navbar = () => {
             </div>
         </header>
     );
-};
+});
 
 export default Navbar;

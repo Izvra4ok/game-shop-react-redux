@@ -3,13 +3,14 @@ import {Route, Routes} from "react-router-dom";
 import HomePage from "./pages/Home/HomePage";
 import Navbar from "./components/Navbar/Navbar";
 import GamePage from "./pages/Game/GamePage";
-import cls from "./App.module.css";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setCurrentGame} from "./Redux/game/gameReducer";
 import {setItemInCart} from "./Redux/cart/CartReducer";
+import OrderPage from "./pages/Order/OrderPage";
+import cls from "./App.module.css";
 
 
-const App = () => {
+const App = React.memo(() => {
 
     const dispatch = useDispatch();
 
@@ -19,12 +20,12 @@ const App = () => {
         }
     }, [])
 
+    useEffect(() => {
+        if (localStorage.getItem("cart")) {
+            dispatch(setItemInCart(JSON.parse(localStorage.getItem("cart" || ""))));
+        }
+    }, [])
 
-    // useEffect(() => {
-    //     if (localStorage.getItem("cart")) {
-    //         dispatch(setItemInCart(JSON.parse(localStorage.getItem("cart" || ""))));
-    //     }
-    // }, [])
 
     return (
         <div className={cls.App}>
@@ -33,7 +34,9 @@ const App = () => {
             <div className={cls.AppContent}>
                 <Routes>
                     <Route path={"/*"} element={<HomePage/>}/>>
+                    <Route path={"/app/*"} element={<GamePage/>}/>
                     <Route path={"/app/:title/*"} element={<GamePage/>}/>
+                    <Route path={"/order/*"} element={<OrderPage/>}/>
                     <Route path="*" element={<h2>"404 Not Found"</h2>}/>
 
                 </Routes>
@@ -42,6 +45,6 @@ const App = () => {
 
         </div>
     );
-}
+});
 
 export default App;

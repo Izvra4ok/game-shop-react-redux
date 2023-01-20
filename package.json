@@ -1,7 +1,7 @@
 {
-  "name": "game-shop-react-redux",
+  "name": "game-shop-react-redux-toolkit",
   "version": "0.1.0",
-  "homepage": "https://izvra4ok.github.io/game-shop-react-redux",
+  "homepage": "https://izvra4ok.github.io/game-shop-react-redux-toolkit",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
