@@ -11,9 +11,12 @@ const gameSlice = createSlice({
         setCurrentGame: (state, action) => {
             state.currentGame = action.payload;
             state.isLoading = false;
-            let response = JSON.stringify(state.currentGame)
-            if(response){
-                localStorage.setItem("game",response)
+
+            try {
+                let saveState = JSON.stringify(state.currentGame);
+                localStorage.setItem('game', saveState);
+            } catch (error) {
+                console.log(error.message, "error");
             }
         },
         setIsLoading: (state, action) => {

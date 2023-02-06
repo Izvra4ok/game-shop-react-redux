@@ -15,17 +15,20 @@ const App = React.memo(() => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (localStorage.getItem("game")) {
-            dispatch(setCurrentGame(JSON.parse(localStorage.getItem("game" || ""))));
+        try {
+            if (!!(localStorage.getItem("cart"))) {
+                JSON.parse(localStorage.getItem("cart")).map((cartData) => (
+                    dispatch(setItemInCart(cartData))
+                ))
+            }
+
+            if (localStorage.getItem("game")) {
+                dispatch(setCurrentGame(JSON.parse(localStorage.getItem("game" || ""))));
+            }
+        } catch (error) {
+            console.log(error.message, "error",)
         }
     }, [])
-
-    useEffect(() => {
-        if (localStorage.getItem("cart")) {
-            dispatch(setItemInCart(JSON.parse(localStorage.getItem("cart" || ""))));
-        }
-    }, [])
-
 
     return (
         <div className={cls.App}>
@@ -41,8 +44,6 @@ const App = React.memo(() => {
 
                 </Routes>
             </div>
-
-
         </div>
     );
 });

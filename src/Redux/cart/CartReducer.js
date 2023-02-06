@@ -8,14 +8,23 @@ const cartSlice = createSlice({
     reducers: {
         setItemInCart: (state, action) => {
             state.itemsInCart.push(action.payload)
-            let response = JSON.stringify(action.payload);
-            if (response) {
-                localStorage.setItem("cart", response)
+
+            try {
+                let saveState = JSON.stringify(state.itemsInCart);
+                localStorage.setItem('cart', saveState);
+            } catch (error) {
+                console.log(error.message, "error");
             }
         },
         deleteItemFromCart: (state, action) => {
             state.itemsInCart = state.itemsInCart.filter(game => game.id !== action.payload)
-            localStorage.setItem("cart", "")
+
+            try {
+                let saveState = JSON.stringify(state.itemsInCart);
+                localStorage.setItem('cart', saveState);
+            } catch (error) {
+                console.log(error.message, "error");
+            }
         },
     },
 });
