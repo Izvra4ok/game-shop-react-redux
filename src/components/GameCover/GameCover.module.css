@@ -1,9 +1,27 @@
-.gameCover{
-    height: 170px;
+.gameCover {
+    height: 270px;
     width: 100%;
     background-size: cover;
     background-position: center;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     position: relative;
+}
+
+@media (max-width: 768px) {
+    .gameCover {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gameCover {
+        height: 270px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gameCover {
+        height: 200px;
+    }
 }

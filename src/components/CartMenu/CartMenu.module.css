@@ -1,13 +1,16 @@
-.cartMenu {
+.cartMenu{
     position: absolute;
     top: 40px;
-    left: -250px;
+    right: 0;
     background-color: rgb(36, 37, 41);
-    padding: 10px 20px;
+    padding: 10px 10px;
     z-index: 2;
     border-radius: 15px;
 }
-
+.cartMenu h2 {
+    margin:0;
+    text-align: center;
+}
 .cartMenu__list {
     width: 400px;
 }
@@ -26,4 +29,14 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+    .cartMenu__list {
+        width: 350px;
+    }
+}
+@media (max-width: 576px) {
+    .cartMenu__list {
+        width: 300px;
+    }
 }

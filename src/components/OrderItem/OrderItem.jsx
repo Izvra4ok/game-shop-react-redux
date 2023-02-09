@@ -1,8 +1,8 @@
-import React  from 'react';
+import React from 'react';
 import {useDispatch} from "react-redux";
-import {GameCover} from "../GameCover/GameCover";
 import {AiOutlineCloseCircle} from "react-icons/ai";
 import {deleteItemFromCart} from "../../Redux/cart/CartReducer";
+import {NavLink} from "react-router-dom";
 import cls from "./OrderItem.module.css";
 
 
@@ -18,20 +18,24 @@ const OrderItem = React.memo(({game}) => {
     return (
         <div className={cls.orderItem}>
 
-            <div className={cls.orderItem__Cover}>
-                <GameCover image={game.image}/>
-            </div>
+            <NavLink to={`/app/${game.title}`}>
+                <div className={cls.orderItem__Cover}>
+                    <img src={game.image} alt=""/>
+                </div>
+            </NavLink>
 
-            <div className={cls.orderItem__Title}>
-                <span>{game.title}</span>
-            </div>
-
+            <NavLink to={`/app/${game.title}`}>
+                <div className={cls.orderItem__Title}>
+                    <span>{game.title}</span>
+                </div>
+            </NavLink>
             <div className={cls.orderItem__Price}>
                 <span>{game.price} $</span>
                 <AiOutlineCloseCircle className={cls.orderItem__Remove}
                                       size={25}
                                       onClick={handleClick}/>
             </div>
+
         </div>
     );
 });

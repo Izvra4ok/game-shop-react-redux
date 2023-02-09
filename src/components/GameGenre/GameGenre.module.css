@@ -1,5 +1,6 @@
 .genre{
     background-color: rgb(80,82,84);
+    margin-bottom: 10px;
     padding: 5px;
     font-size: 13px;
     border-radius: 10px;
@@ -7,5 +8,6 @@
 }
 
 .genre:not(:last-child){
+
     margin-right: 7px;
 }

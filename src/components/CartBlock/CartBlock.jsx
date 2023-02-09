@@ -19,7 +19,7 @@ const CartBlock = React.memo(() => {
     const handleClickOrderGame = useCallback(() => {
         setIsCartMenuVisible(false)
         history("/order/")
-    },[history]);
+    }, [history]);
 
     return (
         <div className={cls.cartBlock}>
@@ -36,13 +36,17 @@ const CartBlock = React.memo(() => {
                     </div>
             }
 
-            {totalPrice > 0
-                ? <span className={cls.cartBlock_Price}>Total:{totalPrice} $</span>
-                : null}
+            {
+                totalPrice > 0
+                    ? <span className={cls.cartBlock_Price}>Total:{totalPrice} $</span>
+                    : null
+            }
 
-            {isCartMenuVisible
-                ? <CartMenu items={items} onClick={handleClickOrderGame}/>
-                : null}
+            {
+                isCartMenuVisible
+                    ? <CartMenu isCartMenuVisible={()=> setIsCartMenuVisible(false)} items={items} handleClickOrderGame={handleClickOrderGame}/>
+                    : null
+            }
         </div>
     );
 });

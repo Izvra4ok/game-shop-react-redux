@@ -1,3 +1,9 @@
-.gameBuy__price{
+.gameBuy {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.gameBuy__price {
     margin-right: 10px;
 }
